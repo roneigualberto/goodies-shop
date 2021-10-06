@@ -1,5 +1,6 @@
 package com.shop.goodies;
 
+import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,6 +13,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
+@AllArgsConstructor
 public class BaseIntegrationTest {
 
     @Test
