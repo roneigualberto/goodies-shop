@@ -33,6 +33,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-hateoas'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.liquibase:liquibase-core'
     implementation 'org.projectlombok:lombok:1.18.20'
     implementation 'org.mapstruct:mapstruct:1.4.2.Final'
@@ -80,15 +81,13 @@ task integrationTest(type: Test) {
 
 liquibase {
     activities {
-        main() {
+        main {
             changeLogFile 'src/main/resources/db/changelog/db.changelog-master.xml'
             url 'jdbc:mysql://localhost/goodies_shop_db'
             username 'root'
             password ''
         }
     }
-    runList = project.ext.runList
-
 }
 
 
