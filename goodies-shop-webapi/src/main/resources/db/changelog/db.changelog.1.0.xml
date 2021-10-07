@@ -10,7 +10,7 @@
             <column name="id" autoIncrement="true" type="bigint">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
-            <column name="first_name" type="bigint">
+            <column name="first_name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="last_name" type="varchar(255)">
