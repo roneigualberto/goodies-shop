@@ -14,6 +14,11 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 
+import static com.shop.goodies.infra.tests.UserTestConstants.HASH_PASSWORD;
+import static com.shop.goodies.infra.tests.UserTestConstants.USER_EMAIL;
+import static com.shop.goodies.infra.tests.UserTestConstants.USER_FIRST_NAME;
+import static com.shop.goodies.infra.tests.UserTestConstants.USER_LAST_NAME;
+import static com.shop.goodies.infra.tests.UserTestConstants.USER_PASSWORD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
@@ -24,13 +29,6 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {
-
-
-    private static final String USER_EMAIL = "user@gmail.com";
-    private static final String USER_FIRST_NAME = "First Name";
-    private static final String USER_LAST_NAME = "Last Name";
-    private static final String USER_PASSWORD = "123";
-    private static final String HASH_PASSWORD = "$2a$10$yYMOzoHo7G6E.mxUf32APOEk3D190pSVGdFwBOhe6ESmf1gImcqD6";
 
 
     @InjectMocks
@@ -54,10 +52,10 @@ class UserServiceImplTest {
 
         when(hashGenerator.hash(any())).thenReturn(HASH_PASSWORD);
 
-        //
+        //when
         User user = userService.createUser(userForm);
 
-
+        //then
         assertEquals(user.getEmail(), USER_EMAIL);
         assertEquals(user.getPassword(), HASH_PASSWORD);
         assertEquals(user.getFirstName(), USER_FIRST_NAME);
