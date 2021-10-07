@@ -10,6 +10,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class ProductServiceImplTest {
@@ -43,6 +47,22 @@ class ProductServiceImplTest {
         List<Category> categories = productService.getAllCategories();
 
         assertThat(categories).isEqualTo(categoriesExpected);
+    }
+
+    @Test
+    void shouldCreateCategory() {
+        //given
+        CategoryForm trufa = CategoryForm.builder()
+                .name("Trufa")
+                .build();
+
+        //when
+        Category category = productService.createCategory(trufa);
+
+        //then
+        assertEquals(category.getName(), "Trufa");
+        verify(categoryRepository, times(1)).save(any());
+
     }
 
 }
