@@ -7,4 +7,6 @@ public interface ProductService {
     List<Category> getAllCategories();
 
     Category createCategory(CategoryForm categoryForm);
+
+    Product createProduct(Long sellerId, ProductForm productForm);
 }

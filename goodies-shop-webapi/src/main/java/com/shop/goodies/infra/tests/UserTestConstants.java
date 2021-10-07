@@ -2,6 +2,7 @@ package com.shop.goodies.infra.tests;
 
 public class UserTestConstants {
 
+    public static final Long USER_ID = 1L;
     public static final String USER_EMAIL = "user@gmail.com";
     public static final String USER_FIRST_NAME = "First Name";
     public static final String USER_LAST_NAME = "Last Name";

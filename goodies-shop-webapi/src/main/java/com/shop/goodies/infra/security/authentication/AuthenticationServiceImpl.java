@@ -1,6 +1,7 @@
 package com.shop.goodies.infra.security.authentication;
 
 import com.shop.goodies.application.request.CredentialRequest;
+import com.shop.goodies.domain.user.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -20,8 +21,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public Token authenticate(CredentialRequest request) {
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword());
         Authentication authentication = authenticationManager.authenticate(authenticationToken);
-        AuthenticatedUser currentUser = (AuthenticatedUser) authentication.getPrincipal();
-        return tokenService.generateToken(currentUser);
+        AuthenticatedUser authenticatedUSer = (AuthenticatedUser) authentication.getPrincipal();
+        return tokenService.generateToken(authenticatedUSer);
     }
 
 }

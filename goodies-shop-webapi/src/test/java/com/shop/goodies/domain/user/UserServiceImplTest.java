@@ -1,4 +1,4 @@
-package com.shop.goodies.domain;
+package com.shop.goodies.domain.user;
 
 import com.shop.goodies.common.DomainException;
 import com.shop.goodies.domain.user.HashGenerator;
